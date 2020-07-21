@@ -6,14 +6,24 @@ namespace XMLComparerCore
 {
     public class XmlDocNode
     {
-        public string Path { get; }
+        public string FullPath { get; }
+        public string Path {get;}
         public string Name { get; }
         public IEnumerable<(string AttributeName, string AttributeValue)> Attributes { get; }
+
+        public XmlDocNode(XmlDocNode innerNode)
+        {
+            FullPath = innerNode.FullPath;
+            Path = innerNode.Path;
+            Name = innerNode.Name;
+            Attributes = innerNode.Attributes;
+        }
 
         public XmlDocNode(XmlNode xmlNode)
         {
             var parents = GetAncestor(xmlNode);
-            Path = parents.Select(r => r.Name).Aggregate((s, acc) => acc + "/" + s);
+            FullPath = parents.Select(r => r.Name).Aggregate((s, acc) => acc + "/" + s);
+            Path = parents.Skip(1).Select(r => r.Name).Aggregate((s,acc) => acc + "/" + s);
             Name = xmlNode.Name;
             Attributes = GetAttributes(xmlNode).ToList();
         }

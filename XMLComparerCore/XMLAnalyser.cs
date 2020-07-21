@@ -9,9 +9,31 @@ namespace XMLComparerCore
 
         public static void Foo()
         {
-            var xmlPath = @"C:\Date\2020.07.21\Web.config";
-            var xmlDocument = new XmlDocument();
-            xmlDocument.Load(xmlPath);
+            var leftXmlPath = @"C:\Date\2020.07.21\Web.config";
+            var leftXmlDoc = new XmlDoc(leftXmlPath);
+            var leftNodeList = leftXmlDoc.GetXmlData().ToList();
+
+            var rightXmlPath = @"C:\Date\2020.07.21\Web.config";
+            var rightXmlDoc = new XmlDoc(rightXmlPath);
+            var rightNodeList = rightXmlDoc.GetXmlData().ToList();
+
+
+            foreach(var node in leftNodeList)
+            {
+                
+
+
+
+
+
+
+            }
+
+
+
+            
+
+
 
         }
 
