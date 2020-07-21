@@ -1,0 +1,3 @@
+#ignore all output folders
+bin/
+obj/
