@@ -1,4 +1,5 @@
 ﻿using System;
+using XMLComparerCore;
 
 namespace XMLComparerConsole
 {
@@ -6,7 +7,9 @@ namespace XMLComparerConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            XMLAnalyser.Foo();    
+
+            Console.WriteLine("That's all folk");
         }
     }
 }
