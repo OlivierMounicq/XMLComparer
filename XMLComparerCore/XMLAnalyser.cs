@@ -15,12 +15,15 @@ namespace XMLComparerCore
 
             var rightXmlPath = @"C:\Date\2020.07.21\Web.config";
             var rightXmlDoc = new XmlDoc(rightXmlPath);
-            var rightNodeList = rightXmlDoc.GetXmlData().ToList();
+            var rightNodeList = rightXmlDoc.GetXmlData().Select((t, i) => new {Idx = i, Node = t}).ToList();
 
+            var idx = -1;
 
             foreach(var node in leftNodeList)
             {
+                ++idx;
                 
+
 
 
 
